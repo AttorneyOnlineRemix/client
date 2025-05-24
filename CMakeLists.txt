@@ -11,7 +11,6 @@ set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-option(AO_BUILD_TESTS "Build test programs" ON)
 option(AO_ENABLE_DISCORD_RPC "Enable Discord Rich Presence" ON)
 
 find_package(QT NAMES Qt6)
@@ -132,10 +131,6 @@ target_link_libraries(Attorney_Online PRIVATE
 if(AO_ENABLE_DISCORD_RPC)
   target_compile_definitions(Attorney_Online PRIVATE AO_ENABLE_DISCORD_RPC)
   target_link_libraries(Attorney_Online PRIVATE discord-rpc)
-endif()
-
-if(AO_BUILD_TESTS)
-  add_subdirectory(test)
 endif()
 
 set_target_properties(Attorney_Online PROPERTIES
